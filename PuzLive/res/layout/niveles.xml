@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/fondo"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+    
+	 <Button
+        android:id="@+id/tvFacil"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Facil"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Button
+        android:id="@+id/tvMedio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+        android:text="Medio"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+   
+    
+    <Button
+        android:id="@+id/tvDificil"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Dificil"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+   
+
+</LinearLayout>
