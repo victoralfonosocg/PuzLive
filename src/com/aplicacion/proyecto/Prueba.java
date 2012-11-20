@@ -1,6 +1,9 @@
 package com.aplicacion.proyecto;
 
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -41,7 +44,7 @@ public class Prueba extends Activity {
 
 class MySurfaceView extends SurfaceView implements Callback,
 		Camera.PreviewCallback {
-
+	ArrayList<int[][]>submatrices;
 	private SurfaceHolder mHolder;
 
 	private Camera mCamera;
@@ -127,23 +130,12 @@ class MySurfaceView extends SurfaceView implements Callback,
 				mat=convertirAMatriz(rgbints, previewSize.height, previewSize.width);
 
 				
+				submatrices=crearSubmatrices(mat, previewSize.width, previewSize.height, 5, 4);
 				
-				Matrix full = new Matrix(mat);
 
 		       
-				int divx=4;
-				int divy=5;
-		      
-
-		        for (int i = 0; i < getHeight(); i += getHeight()/divy) {
-		            for (int j = 0; j <getWidth(); j +=getWidth()/divx) {
-		               Matrix.getSubMatrix(full, i, j,getHeight()/divy,getWidth()/divx);
-		                System.out.println();
-		            }
-
-		        }
-
-
+				
+			//	mezclarMatrices(submatrices);
 				
 				
 				
@@ -205,6 +197,31 @@ class MySurfaceView extends SurfaceView implements Callback,
 			}
 		}
 	}
+	
+	
+	void mezclarMatrices(ArrayList <int[][]>matrices){
+		  Random randon = new Random();
+		int [][] tmp2;
+		int [][] tmp3;
+		int [][] tmp4;
+		int indice1=randon.nextInt(matrices.size());
+		int indice2=randon.nextInt(matrices.size());
+		for(int i=1;i<100;i++){
+			
+			tmp2=matrices.get(indice1);
+			tmp4=matrices.get(indice2);
+			tmp3=tmp2;
+			matrices.remove(indice1);
+			matrices.add(tmp3);
+		
+		
+			
+		}
+		
+		
+		
+		
+	}
 
 	int[][] convertirAMatriz(int[] arr, int M, int N) {
 		int[][] matriz;
@@ -221,6 +238,78 @@ class MySurfaceView extends SurfaceView implements Callback,
 		return matriz;
 
 	}
+	
+	
+	
+	 public ArrayList<int[][]> crearSubmatrices(int [][]matriz,int tamx,int tamy,int divx,int divy) {
+		 
+		 ArrayList<int [][]>submatrices=new ArrayList<int [][]>();
+	        int aumentoXo = 0, aumentoX = 0;
+	        int aumentoYo = 0, aumentoY = 0;
+	       
+	      
+	     
+	        Matrix full = new Matrix(matriz, tamy, tamx);
+
+	       
+	       
+
+
+
+	        if (tamx % divx == 0) {
+	            
+	            aumentoX = (int)(tamx / divx);
+	          
+
+
+	        } else {
+	       
+	            aumentoXo = (int)Math.ceil (tamx *1.0/ divx);
+                
+	            aumentoX = (int)Math.floor (tamx *1.0/ divx);
+
+	        }
+	        if (tamy % divy == 0) {
+	         
+	         aumentoY = (int) (tamy / divy);
+	        } else {
+	            
+	             aumentoYo = (int)Math.ceil (tamy *1.0/ divy);
+                     
+	            aumentoY = (int)Math.floor (tamy *1.0/ divy);
+
+	        }
+
+	        int cont1 = 0, cont2 = 0;
+	        int [][]tmp;
+	        for (int i = 0; i < divy; i++) {
+
+	            for (int j = 0; j < divx; j++) {
+
+
+	               tmp=Matrix.getSubMatrix(full, cont2, cont1, aumentoX!=0? aumentoX:aumentoXo, aumentoY!=0?aumentoY:aumentoYo).devolverMatriz();
+	             //  submatrices.add(tmp);
+	              
+	                if (tamx % divx != 0 && j == 0) {
+	                    cont2 = cont2 + aumentoXo;
+	                } else {
+	                    cont2 = cont2 + aumentoX;
+	                }
+
+	            }
+	            cont2=0;
+
+	            if (tamy % divy != 0 && i == 0) {
+	                cont1 = cont1 + aumentoYo;
+	            } else {
+	                cont1 = cont1 + aumentoY;
+	            }
+
+	        }
+
+	        return submatrices;
+
+	    }
 		
 
 }
@@ -231,8 +320,8 @@ class Matrix {
     int[][] data;
     int x, y, columns, rows;
 
-    public Matrix(int[][] data) {
-        this(data, 0, 0, data.length, data[0].length);
+    public Matrix(int[][] data, int M, int N) {
+        this(data, 0, 0, N, M);
     }
 
     public Matrix(int[][] data, int x, int y, int columns, int rows) {
@@ -243,22 +332,28 @@ class Matrix {
         this.rows = rows;
     }
 
-   public static Matrix getSubMatrix(Matrix M, int x, int y, int columns, int rows) {
-	   
-	   
+    public static Matrix getSubMatrix(Matrix M, int x, int y, int columns, int rows) {
+
+
         return new Matrix(M.data, M.x + x, M.y + y, columns, rows);
-        
-        
-    }
-  public void imprimirMatrix() {
-        int[][] t = data;
-       
-        for (int i = y; i < y + rows; i++) {
-            for (int j = x; j < x + columns; j++) {
-                System.out.print(t[i][j] + " ");
-            }
-            System.out.println();
-        }
+
+
+
     }
 
+    public int[][] devolverMatriz() {
+    	int cont1,cont2=0;
+        int[][] tmp=new int[rows][columns];
+        
+        for (int i = y; i < y + rows; i++) {
+        	cont1=0;
+            for (int j = x; j < x + columns; j++) {
+               tmp[cont2][cont1]=data[i][j];
+               cont1=cont1+1;
+            }
+            cont2=cont2+1;
+           
+        }
+        return tmp;
+    }
 }
