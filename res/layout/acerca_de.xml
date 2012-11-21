@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/colorfondo">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="PuzLive"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="Copyright ©2012-2013"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#ffffff"
+        android:text="Puzlive es un juego de rompecabezas desarrollado utilizando la camara para dar una experiencia mas dinamica."/>
+
+	<TextView
+	    android:id="@+id/textView4"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/textView3"
+	    android:layout_below="@+id/textView3"
+	    android:layout_marginTop="14dp"
+	   android:textStyle="italic"
+	    android:textColor="#ffffff"
+	    android:text="Creadores:\n\nLeonardo Tamayo:\n\n\tDirector de Proyecto/Programador\n\nCarlos Caicedo:\n\n\tDiseño de Interfaz/Programador\n\nPedro Iñiguez:\n\n\tProgramador"/>
+
+	<ImageView
+	    android:id="@+id/imageView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/textView2"
+	    android:layout_alignParentBottom="true"
+	    android:src="@drawable/ic_launcher" />
+    
+</RelativeLayout>

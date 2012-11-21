@@ -2,11 +2,8 @@ package com.aplicacion.proyecto;
 
 import android.os.Bundle;
 
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
-import android.hardware.Camera;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -46,7 +43,7 @@ public class Niveles extends Activity implements OnClickListener {
 		switch (v.getId()) {
 
 		case R.id.tvFacil:
-			intent = new Intent(Niveles.this, Prueba.class);
+			intent = new Intent(Niveles.this, Facil.class);
 
 			startActivity(intent);
 
@@ -54,7 +51,7 @@ public class Niveles extends Activity implements OnClickListener {
 
 		case R.id.tvMedio:
 
-			intent = new Intent(Niveles.this, CameraPreview.class);
+			intent = new Intent(Niveles.this, Medio.class);
 
 			startActivity(intent);
 
@@ -62,7 +59,7 @@ public class Niveles extends Activity implements OnClickListener {
 
 		case R.id.tvDificil:
 
-			intent = new Intent(Niveles.this, CameraPreview.class);
+			intent = new Intent(Niveles.this, Dificil.class);
 
 			startActivity(intent);
 

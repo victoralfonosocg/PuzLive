@@ -7,8 +7,6 @@ import java.io.IOException;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.Camera.*;
 import android.os.Bundle;
@@ -17,36 +15,28 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import com.aplicacion.puzlive.R;
 
 public class CameraPreview extends Activity {
 	private Preview mPreview;
 
-	private ImageView v;
 	protected void onCreate(Bundle savedInstanceState) {
-		
 
 		// Hide the window title.
-		 super.onCreate(savedInstanceState);
-	        
-	        // Hide the window title.
-		 	requestWindowFeature(Window.FEATURE_NO_TITLE);
-			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-					WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		super.onCreate(savedInstanceState);
 
-	    
-	        // Create our Preview view and set it as the content of our activity.
-	        mPreview = new Preview(this);
-	        
-	       setContentView(mPreview);
-	       
-	        
-	        
+		// Hide the window title.
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		// Create our Preview view and set it as the content of our activity.
+		mPreview = new Preview(this);
+
+		setContentView(mPreview);
+
 	}
 
 }
-
 
 class Preview extends SurfaceView implements SurfaceHolder.Callback,
 		PreviewCallback {
@@ -60,7 +50,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback,
 	private Size previewSize;
 	// this array stores the pixels as hexadecimal pairs
 	private int[] pixels;
-	
+
 	private Bitmap bmp;
 
 	Preview(Context context) {
@@ -72,19 +62,19 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback,
 		mHolder.addCallback(this);
 		mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 	}
-	
-	public Bitmap getBMP(){
-		
+
+	public Bitmap getBMP() {
+
 		return bmp;
 	}
 
 	public void surfaceCreated(SurfaceHolder holder) {
 		// The Surface has been created, acquire the camera and tell it where
 		// to draw.
-	
+
 		try {
 			mCamera = Camera.open();
-			if(mCamera!=null){
+			if (mCamera != null) {
 				mCamera.setPreviewDisplay(holder);
 
 				// sets the camera callback to be the one defined in this class
@@ -94,9 +84,8 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback,
 				parameters = mCamera.getParameters();
 				previewSize = parameters.getPreviewSize();
 				pixels = new int[previewSize.width * previewSize.height];
-				
+
 			}
-			
 
 		} catch (IOException exception) {
 			mCamera.release();
@@ -121,33 +110,28 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback,
 		// set the camera's settings
 		mCamera.setParameters(parameters);
 		mCamera.startPreview();
-	
-		
-		
+
 	}
 
 	public void onPreviewFrame(byte[] data, Camera camera) {
-		
-		byte[]tmp=new byte[previewSize.width * previewSize.height];
+
+		byte[] tmp = new byte[previewSize.width * previewSize.height];
 		// transforms NV21 pixel data into RGB pixels
 		decodeYUV420SP(pixels, data, previewSize.width, previewSize.height);
 		// Rotate the data for Portait Mode
 		byte[] rotatedData = new byte[data.length];
 		for (int y = 0; y < previewSize.height; y++) {
-		    for (int x = 0; x < previewSize.width; x++)
-		        rotatedData[x * previewSize.height + previewSize.height- y - 1] = data[x + y * previewSize.width];
+			for (int x = 0; x < previewSize.width; x++)
+				rotatedData[x * previewSize.height + previewSize.height - y - 1] = data[x
+						+ y * previewSize.width];
 		}
-		data=rotatedData;
-		
+		data = rotatedData;
+
 		// Outuput the value of the top left pixel in the preview to LogCat
 		Log.i("Pixels",
 				"The top right pixel has the following RGB (hexadecimal) values:"
 						+ Integer.toHexString(rotatedData[previewSize.width]));
-		
-		
-        
-		
-		
+
 	}
 
 	// Method from Ketai project! Not mine! See below...

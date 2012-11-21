@@ -5,8 +5,11 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_puz_live">PuzLive</string>
     <string name="title_niveles">Niveles</string>
-     <string name="title_preview">CameraPreview</string>
-      <string name="title_vision">VisionCamara</string>
- <string name="title_prueba">Prueba</string>
-      
+    <string name="title_preview">CameraPreview</string>
+    <string name="title_vision">VisionCamara</string>
+    <string name="title_acerca">Acerca_de</string>
+    <string name="title_facil">Facil</string>
+    <string name="title_medio">Medio</string>
+    <string name="title_dificil">Dificil</string>
+
 </resources>

@@ -20,21 +20,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       
         <activity
             android:name="com.aplicacion.proyecto.Niveles"
             android:label="@string/title_niveles" >
         </activity>
- 	 	<activity
-            android:name="com.aplicacion.proyecto.CameraPreview"
-            android:screenOrientation="landscape"
-            android:label="@string/title_preview" >
-        </activity>
-        
         <activity
-            android:name="com.aplicacion.proyecto.Prueba"
-            android:screenOrientation="landscape"
-            android:label="@string/title_prueba" >
+            android:name="com.aplicacion.proyecto.Acerca_de"
+            android:label="@string/title_acerca" >
+        </activity>
+        <activity
+            android:name="com.aplicacion.proyecto.CameraPreview"
+            android:label="@string/title_preview"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.aplicacion.proyecto.Facil"
+            android:label="@string/title_facil"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.aplicacion.proyecto.Medio"
+            android:label="@string/title_medio"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.aplicacion.proyecto.Dificil"
+            android:label="@string/title_dificil"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

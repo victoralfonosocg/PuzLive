@@ -14,7 +14,7 @@ import com.aplicacion.puzlive.R;
 public class PuzLive extends Activity implements OnClickListener {
 
 	Button partida, rank, acerca;
-	int i = 0;
+	Intent i;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,12 @@ public class PuzLive extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		
+
 		switch (v.getId()) {
-		
+
 		case R.id.tvPartida:
-			
-			Intent i = new Intent();
+
+			i = new Intent();
 			i.setClass(this, Niveles.class);
 			startActivity(i);
 			break;
@@ -53,6 +53,10 @@ public class PuzLive extends Activity implements OnClickListener {
 			break;
 
 		case R.id.tvAcercaDe:
+
+			i = new Intent();
+			i.setClass(this, Acerca_de.class);
+			startActivity(i);
 
 			break;
 
