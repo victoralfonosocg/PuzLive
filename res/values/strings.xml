@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Proyecto</string>
+    <string name="app_name">PuzLive</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_puz_live">PuzLive</string>
+	<string name="title_activity_puz_live">PuzLive</string>
     <string name="title_niveles">Niveles</string>
     <string name="title_preview">CameraPreview</string>
     <string name="title_vision">VisionCamara</string>
@@ -11,5 +12,4 @@
     <string name="title_facil">Facil</string>
     <string name="title_medio">Medio</string>
     <string name="title_dificil">Dificil</string>
-
 </resources>

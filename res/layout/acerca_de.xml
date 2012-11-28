@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" 
+    android:layout_height="fill_parent" 
     android:background="@drawable/colorfondo">
 
     <TextView
@@ -47,12 +47,6 @@
 	    android:textColor="#ffffff"
 	    android:text="Creadores:\n\nLeonardo Tamayo:\n\n\tDirector de Proyecto/Programador\n\nCarlos Caicedo:\n\n\tDiseño de Interfaz/Programador\n\nPedro Iñiguez:\n\n\tProgramador"/>
 
-	<ImageView
-	    android:id="@+id/imageView1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/textView2"
-	    android:layout_alignParentBottom="true"
-	    android:src="@drawable/ic_launcher" />
+	
     
 </RelativeLayout>
