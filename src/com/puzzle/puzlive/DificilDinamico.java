@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -53,26 +54,34 @@ public class DificilDinamico extends Activity {
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
+		
 		switch (id) {
 		case 0:
 			AlertDialog.Builder dialogGanar = new AlertDialog.Builder(this);
 			dialogGanar.setTitle("Felicidades! ");
 			dialogGanar.setMessage("Ha culminado el nivel con :" + puntos
 					+ " puntos!");
-
+			 final EditText input = new EditText(this); 
+			 input.setText("user");
+			 dialogGanar.setView(input);
 			dialogGanar.setPositiveButton("Ok",
 					new DialogInterface.OnClickListener() {
+						private String value;
+
 						public void onClick(DialogInterface dialog, int which) {
+							value = input.getText().toString();
 							finish();
 
 						}
 					});
 			return dialogGanar.create();
 
+		
 		}
 		return null;
 
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,14 +94,14 @@ public class DificilDinamico extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.itemHint:
-
+			ic.hint();
 			break;
 		case R.id.itemAyuda:
 			Toast.makeText(
 					getApplicationContext(),
 					"Intercambie las piezas del "
 							+ "rompecabezas que se visualiza"
-							+ " con la pantalla tactil, giralas rotando tu smart-phone  y logra formar"
+							+ " con la pantalla tactil y logra formar"
 							+ " el paisaje o la acividad que estas filmando",
 					Toast.LENGTH_LONG).show();
 

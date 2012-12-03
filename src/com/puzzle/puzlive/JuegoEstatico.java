@@ -122,14 +122,14 @@ public class JuegoEstatico extends SurfaceView implements
 
 				stop = System.currentTimeMillis();
 
-				if (act instanceof FacilDinamico) {
-					((FacilDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof FacilEstatico) {
+					((FacilEstatico) act).puntos = (stop - start) / 1000;
 				}
-				if (act instanceof MedioDinamico) {
-					((MedioDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof MedioEstatico) {
+					((MedioEstatico) act).puntos = (stop - start) / 1000;
 				}
-				if (act instanceof DificilDinamico) {
-					((DificilDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof DificilEstatico) {
+					((DificilEstatico) act).puntos = (stop - start) / 1000;
 				}
 
 				act.showDialog(0);
@@ -177,6 +177,10 @@ public class JuegoEstatico extends SurfaceView implements
 					matriz_tmp[0].length, matriz_tmp.length, Config.RGB_565),
 					0, 0, paint);
 			dibujarSeparaciones(canvas);
+			if(seleccion!=-1){
+				
+				marcarSubSeleccionada(canvas);
+			}
 			holder.unlockCanvasAndPost(canvas);
 			if (haGanado()) {
 
@@ -315,6 +319,76 @@ public class JuegoEstatico extends SurfaceView implements
 
 		}
 		return tmp;
+
+	}
+
+	public void marcarSubSeleccionada(Canvas canvas) {
+		Paint myPaint;
+		myPaint = new Paint();
+		myPaint.setColor(Color.RED);
+		myPaint.setStrokeWidth(3);
+		int x1,x2,y1,y2;
+		x1=x2=y1=y2=0;
+		
+
+		if (width % 2 == 0) {
+			for (int i = (width / divx); i < width + (width / divx); i += (width / divx)) {
+
+				if (corX >= (i - (width / divx)) && corX < i) {
+
+					x1=(i - (width / divx));
+					x2=i;
+					
+
+				}
+				
+			}
+		} else {
+			for (int i = (width / divx); i < width; i += (width / divx)) {
+
+				if (corX >= (i - (width / divx)) && corX < i) {
+
+					x1=(i - (width / divx));
+					x2=i;
+					
+
+				}
+				
+			}
+
+		}
+		
+		if (height % 2 == 0) {
+			for (int j = (height / divy); j < height + (height / divy); j += (height / divy)) {
+
+				if (corY >= (j - (height / divy)) && corY < j) {
+					y1=(j - (height / divy));
+					y2=j;
+					
+				}
+				
+			}
+
+		} else {
+
+			for (int j = (height / divy); j < height; j += (height / divy)) {
+
+				if (corY >= (j - (height / divy)) && corY < j) {
+					y1=(j - (height / divy));
+					y2=j;
+					
+				}
+				
+			}
+		}
+
+		canvas.drawLine(x1,y1,x2,y1,myPaint);
+		canvas.drawLine(x1, y2, x2, y2, myPaint);
+		
+		canvas.drawLine(x1,y1,x1,y2,myPaint);
+		canvas.drawLine(x2, y1, x2, y2, myPaint);
+		
+	
 
 	}
 

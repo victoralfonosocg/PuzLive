@@ -36,7 +36,7 @@ public class JuegoDinamico extends SurfaceView implements SurfaceHolder.Callback
 		this.act = act;
 		this.divx = divx;
 		this.divy = divy;
-
+		
 		SurfaceHolder holder = getHolder();
 		holder.addCallback(this);
 		holder.setType(SurfaceHolder.SURFACE_TYPE_NORMAL);
@@ -45,7 +45,7 @@ public class JuegoDinamico extends SurfaceView implements SurfaceHolder.Callback
 	}
 
 	public void surfaceCreated(SurfaceHolder holder) {
-
+	
 		camera = Camera.open();
 		start = System.currentTimeMillis();
 		try {
@@ -119,6 +119,10 @@ public class JuegoDinamico extends SurfaceView implements SurfaceHolder.Callback
 				matriz_tmp[0].length, matriz_tmp.length, Config.RGB_565), null,
 				dest, paint);
 		dibujarSeparaciones(canvas);
+		if(seleccion!=-1){
+			
+			marcarSubSeleccionada(canvas);
+		}
 		holder.unlockCanvasAndPost(canvas);
 		if (haGanado()) {
 
@@ -502,6 +506,76 @@ public class JuegoDinamico extends SurfaceView implements SurfaceHolder.Callback
 		return -1;
 
 	}
+	
+	public void marcarSubSeleccionada(Canvas canvas) {
+		Paint myPaint;
+		myPaint = new Paint();
+		myPaint.setColor(Color.RED);
+		myPaint.setStrokeWidth(3);
+		int x1,x2,y1,y2;
+		x1=x2=y1=y2=0;
+		
+
+		if (width % 2 == 0) {
+			for (int i = (width / divx); i < width + (width / divx); i += (width / divx)) {
+
+				if (corX >= (i - (width / divx)) && corX < i) {
+
+					x1=(i - (width / divx));
+					x2=i;
+					
+
+				}
+				
+			}
+		} else {
+			for (int i = (width / divx); i < width; i += (width / divx)) {
+
+				if (corX >= (i - (width / divx)) && corX < i) {
+
+					x1=(i - (width / divx));
+					x2=i;
+					
+
+				}
+				
+			}
+
+		}
+		
+		if (height % 2 == 0) {
+			for (int j = (height / divy); j < height + (height / divy); j += (height / divy)) {
+
+				if (corY >= (j - (height / divy)) && corY < j) {
+					y1=(j - (height / divy));
+					y2=j;
+					
+				}
+				
+			}
+
+		} else {
+
+			for (int j = (height / divy); j < height; j += (height / divy)) {
+
+				if (corY >= (j - (height / divy)) && corY < j) {
+					y1=(j - (height / divy));
+					y2=j;
+					
+				}
+				
+			}
+		}
+
+		canvas.drawLine(x1,y1,x2,y1,myPaint);
+		canvas.drawLine(x1, y2, x2, y2, myPaint);
+		
+		canvas.drawLine(x1,y1,x1,y2,myPaint);
+		canvas.drawLine(x2, y1, x2, y2, myPaint);
+		
+	
+
+	}
 
 	public boolean haGanado() {
 
@@ -516,6 +590,31 @@ public class JuegoDinamico extends SurfaceView implements SurfaceHolder.Callback
 		return true;
 	}
 
-	
+	public void hint(){
+		int pos;
+		int cont=0;
+		Random random;
+		
+		random=new Random();
+		
+		pos=random.nextInt(posiciones.length);
 
+		for(int i=0;i<posiciones.length;i++){
+			
+			if(i==pos){
+				if(posiciones[i]==i){
+					
+					hint();
+					
+				}else{
+					posiciones[i]=i;
+					
+				}
+				return;
+				
+			}
+			cont=cont+1;
+		}
+		
+	}
 }
