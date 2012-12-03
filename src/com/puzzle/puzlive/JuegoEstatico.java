@@ -186,14 +186,14 @@ public class JuegoEstatico extends SurfaceView implements
 
 				stop = System.currentTimeMillis();
 
-				if (act instanceof FacilDinamico) {
-					((FacilDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof FacilEstatico) {
+					((FacilEstatico) act).puntos = (stop - start) / 1000;
 				}
-				if (act instanceof MedioDinamico) {
-					((MedioDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof MedioEstatico) {
+					((MedioEstatico) act).puntos = (stop - start) / 1000;
 				}
-				if (act instanceof DificilDinamico) {
-					((DificilDinamico) act).puntos = (stop - start) / 1000;
+				if (act instanceof DificilEstatico) {
+					((DificilEstatico) act).puntos = (stop - start) / 1000;
 				}
 
 				act.showDialog(0);

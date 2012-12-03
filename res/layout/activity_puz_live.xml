@@ -15,11 +15,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/tvRanking"
+        android:id="@+id/tvInstruc"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Ranking"
+        android:text="Instrucciones"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button

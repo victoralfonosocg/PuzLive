@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="Estatico"
+        android:text="Estático"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -24,7 +24,7 @@
         android:layout_above="@+id/tvEstatico"
         android:layout_alignParentLeft="true"
         android:gravity="center_horizontal"
-        android:text="Dinamico"
+        android:text="Dinámico"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

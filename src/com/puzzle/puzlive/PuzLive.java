@@ -1,6 +1,5 @@
 package com.puzzle.puzlive;
 
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,10 +10,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-
 public class PuzLive extends Activity implements OnClickListener {
 
-	Button partida, rank, acerca;
+	Button partida, instruc, acerca;
 	Intent i;
 
 	@Override
@@ -29,11 +27,12 @@ public class PuzLive extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_puz_live);
 
 		partida = (Button) findViewById(R.id.tvPartida);
-		rank = (Button) findViewById(R.id.tvRanking);
+
 		acerca = (Button) findViewById(R.id.tvAcercaDe);
 
+		instruc = (Button) findViewById(R.id.tvInstruc);
 		partida.setOnClickListener(this);
-		rank.setOnClickListener(this);
+		instruc.setOnClickListener(this);
 		acerca.setOnClickListener(this);
 
 	}
@@ -48,9 +47,11 @@ public class PuzLive extends Activity implements OnClickListener {
 			i.setClass(this, Modalidades.class);
 			startActivity(i);
 			break;
+		case R.id.tvInstruc:
 
-		case R.id.tvRanking:
-
+			i = new Intent();
+			i.setClass(this, Instrucciones.class);
+			startActivity(i);
 			break;
 
 		case R.id.tvAcercaDe:

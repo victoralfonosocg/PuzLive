@@ -39,6 +39,10 @@
             android:label="@string/title_acerca" >
         </activity>
         <activity
+            android:name="com.puzzle.puzlive.Instrucciones"
+            android:label="@string/title_instruc" >
+        </activity>
+        <activity
             android:name="com.puzzle.puzlive.FacilDinamico"
             android:label="@string/title_facildinamico"
             android:screenOrientation="landscape" >

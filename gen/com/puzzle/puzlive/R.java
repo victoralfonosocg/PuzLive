@@ -32,16 +32,17 @@ public final class R {
         public static final int tvDinamico=0x7f07000b;
         public static final int tvEstatico=0x7f07000a;
         public static final int tvFacil=0x7f07000c;
+        public static final int tvInstruc=0x7f070005;
         public static final int tvMedio=0x7f07000d;
         public static final int tvPartida=0x7f070004;
-        public static final int tvRanking=0x7f070005;
     }
     public static final class layout {
         public static final int acerca_de=0x7f030000;
         public static final int activity_puz_live=0x7f030001;
         public static final int camera=0x7f030002;
-        public static final int modalidades=0x7f030003;
-        public static final int niveles=0x7f030004;
+        public static final int instrucciones=0x7f030003;
+        public static final int modalidades=0x7f030004;
+        public static final int niveles=0x7f030005;
     }
     public static final class menu {
         public static final int menu_dinamico=0x7f060000;
@@ -61,6 +62,7 @@ public final class R {
         public static final int title_dificilestatico=0x7f04000e;
         public static final int title_facildinamico=0x7f040009;
         public static final int title_facilestatico=0x7f04000c;
+        public static final int title_instruc=0x7f040014;
         public static final int title_mediodinamico=0x7f04000a;
         public static final int title_medioestatico=0x7f04000d;
         public static final int title_modalidades=0x7f04000f;

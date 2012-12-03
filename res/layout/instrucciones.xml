@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/colorfondo" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="PuzLive"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="Copyright ©2012-2013"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
+        android:text="La modalidad estática, permite escoger entre varias dificultades. La modalidad en si se trata de maniuplar un rompecabezas estatico. 
+        Si se presiona el boton de menu, se despliega una opcion para refrescar la imagen que se ve, manteniendo el movimiento que se realizó sobre el rompecabezas"
+        android:textColor="#ffffff"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="14dp"
+        android:text="La modalidad dinámica, permite escoger entre varias dificultades. La modalidad en si se trata de maniuplar un rompecabezas dinamico.Es decir,
+	     la camara se mantendrá encendida durante todo el juego. Si se presiona el boton de menu, se despliega una opcion para obtener un hint (o una breve ayuda)"
+        android:textColor="#ffffff"
+        android:textStyle="italic" />
+
+</RelativeLayout>
