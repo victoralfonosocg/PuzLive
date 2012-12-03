@@ -22,40 +22,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-                <activity
-            android:name="com.puzzle.puzlive.Niveles"
-            android:label="@string/title_niveles" >
+        <activity
+            android:name="com.puzzle.puzlive.Modalidades"
+            android:label="@string/title_modalidades" >
+        </activity>
+        <activity
+            android:name="com.puzzle.puzlive.NivelesEstatico"
+            android:label="@string/title_nivelesestatico" >
+        </activity>
+        <activity
+            android:name="com.puzzle.puzlive.NivelesDinamico"
+            android:label="@string/title_nivelesdinamico" >
         </activity>
         <activity
             android:name="com.puzzle.puzlive.Acerca_de"
             android:label="@string/title_acerca" >
         </activity>
-        
-               <activity
-            android:name="com.puzzle.puzlive.Facil"
-            android:label="@string/title_facil"
-            android:screenOrientation="landscape" >
-        </activity>
-        
         <activity
-            android:name="com.puzzle.puzlive.Medio"
-            android:label="@string/title_medio"
+            android:name="com.puzzle.puzlive.FacilDinamico"
+            android:label="@string/title_facildinamico"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.puzzle.puzlive.Dificil"
-            android:label="@string/title_dificil"
+            android:name="com.puzzle.puzlive.MedioDinamico"
+            android:label="@string/title_mediodinamico"
             android:screenOrientation="landscape" >
         </activity>
-        
-        
-        
+        <activity
+            android:name="com.puzzle.puzlive.DificilDinamico"
+            android:label="@string/title_dificildinamico"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.puzzle.puzlive.FacilEstatico"
+            android:label="@string/title_facilestatico"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.puzzle.puzlive.MedioEstatico"
+            android:label="@string/title_medioestatico"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.puzzle.puzlive.DificilEstatico"
+            android:label="@string/title_dificilestatico"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
-    
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    
+
 </manifest>

@@ -45,7 +45,7 @@ public class PuzLive extends Activity implements OnClickListener {
 		case R.id.tvPartida:
 
 			i = new Intent();
-			i.setClass(this, Niveles.class);
+			i.setClass(this, Modalidades.class);
 			startActivity(i);
 			break;
 
